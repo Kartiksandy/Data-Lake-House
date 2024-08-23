@@ -111,4 +111,100 @@ This project demonstrates how to build a cost-effective data lakehouse using AWS
 
 For detailed instructions and code, refer to the complete documentation and video tutorial. Feel free to explore the dataset and implementation details in the attached resources. Your feedback and suggestions are welcome to improve this project further.
 
+## Realtime Streaming with Data Lakehouse
+
+![image](https://github.com/user-attachments/assets/e30565a0-9029-4caf-a94b-b3f82cec420f)
+
+
+The Realtime Lakehouse system is designed to ingest, store, and process real-time data from various sources. The system uses a combination of Confluent's Kafka, MinIO for object storage, and Spark for data processing. This documentation provides a detailed overview of the system's architecture, configuration, and components as depicted in the provided screenshots.
+Prerequisites
+
+•  Programming Languages: Python, Java
+•  Big Data Technologies: Apache Kafka, Apache Spark, Apache Flink
+•  Cloud and Storage: MinIO, AWS S3
+•  Data Processing: Pandas
+•  Containerization: Docker, Docker Compose
+•  Automation and Scripting: Bash, Shell Scripting
+
+Objective
+
+To set up a Kafka Broker in KRaft mode, integrate it with a MinIO S3 bucket for data ingestion, and create a Python script to ingest data from MinIO to Kafka and consume it.
+
+
+
+
+
+
+Step 1: Setting Up Kafka Broker in KRaft Mode
+Docker Compose Configuration
+
+Created a Docker Compose file to configure Kafka brokers in KRaft mode, ensuring high availability and fault tolerance.
+The docker-compose.yml file orchestrates the deployment of various services required for the Realtime Lakehouse system. Below are the key components configured in the docker-compose.yml file:
+•  Define Services: We define two services for our Kafka brokers (broker1 and broker2) using the latest Confluent Kafka image.
+•  Environment Variables: Set environment variables to configure the brokers. This includes enabling KRaft mode, setting listener configurations, and defining the node IDs and log directories.
+•  Volumes: Mount the local directory to the Kafka data directory inside the container to persist Kafka logs.
+![image](https://github.com/user-attachments/assets/7a856bee-d1e1-4b7b-9cde-55f7e9722c69)
+
+ 
+
+2. Docker Dashboard
+The Docker dashboard provides an overview of the running containers, their status, resource usage, and ports. Key observations include:
+•	Realtime Lakehouse container is running.
+•	Schema Registry, Control Center, Spark Worker, MinIO containers are also running.
+•	The Control Center is running on port 9021.
+•	The Schema Registry is running on port 8081.
+
+ ![image](https://github.com/user-attachments/assets/329dd7a0-8600-41b5-bbda-33254e9bbcb2)
+
+3. Confluent Control Center
+The Confluent Control Center provides a graphical interface to monitor and manage the Kafka cluster. Key sections include:
+
+ 
+![image](https://github.com/user-attachments/assets/05f416fe-6256-4692-b1f9-0f06eafae890)
+
+
+4. Producer Script
+The producer script is responsible for connecting to the MinIO client and ingesting data into the Kafka topic.
+Python Script for Data Ingestion
+Created a Python script to read data from MinIO and produce it to Kafka.
+1.	MinIO Configuration: Initialize the MinIO client with the appropriate access credentials and endpoint.
+2.	Kafka Producer Configuration: Set up the Kafka producer with the necessary configuration, including the bootstrap servers and client ID.
+3.	Data Ingestion Function: Define a function to read data from MinIO, process it using Pandas, and produce each record to Kafka.
+
+ 
+![image](https://github.com/user-attachments/assets/03d0c35b-1665-480a-bfc9-bd6503b4cbf1)
+
+
+5. MinIO Object Browser
+The MinIO Object Browser provides an interface to manage and view the objects stored in the MinIO buckets.
+•  Define MinIO Service: Add a service definition for MinIO, specifying the image, container name, environment variables for access credentials, and the command to start the MinIO server.
+•  Ports and Volumes: Map the necessary ports (9000 for the MinIO web interface and 9001 for the console) and mount a local directory to persist MinIO data.
+ 
+![image](https://github.com/user-attachments/assets/ba69b528-b73e-4185-afd8-e5b856d4410c)
+
+6. Kafka Topics
+The Kafka topics are managed through the Confluent Control Center. Key topic configurations include:
+•	nyc_trip_records:
+o	Messages: No new messages
+o	Schema and Configuration settings are accessible
+
+ 
+
+![image](https://github.com/user-attachments/assets/72be5493-fcb4-47f2-8ff5-ab5b38262afa)
+
+
+![image](https://github.com/user-attachments/assets/634bf0c7-ee50-4b30-b126-4c1140f8e769)
+
+ 
+
+
+
+
+ Data Flow
+1.	Data Ingestion: Data is ingested from various sources and stored in the MinIO buckets.
+2.	Processing: The producer script reads data from the MinIO buckets and publishes it to the Kafka topic nyc_trip_records.
+3.	Monitoring: The Confluent Control Center is used to monitor the Kafka brokers, topics, and the overall data flow.
+Conclusion
+The Realtime Lakehouse system is a robust setup for real-time data processing and storage. The combination of Docker, Kafka, MinIO, and Spark provides a scalable and efficient architecture. The provided screenshots offer a clear view of the system's configuration and operation.
+
 
