@@ -207,4 +207,8 @@ o	Schema and Configuration settings are accessible
 Conclusion
 The Realtime Lakehouse system is a robust setup for real-time data processing and storage. The combination of Docker, Kafka, MinIO, and Spark provides a scalable and efficient architecture. The provided screenshots offer a clear view of the system's configuration and operation.
 
+Conclusion
+The Realtime Lakehouse system is a robust setup for real-time data processing and storage. The combination of Docker, Kafka, MinIO, and Spark provides a scalable and efficient architecture. The provided screenshots offer a clear view of the system's configuration and operation.
+
+
 
