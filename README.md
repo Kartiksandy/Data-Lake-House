@@ -41,12 +41,15 @@ Data Source
 For this project, we utilized the NYC yellow taxi trip data. This dataset contains comprehensive trip records including pickup and drop-off times, locations, distances, and fare amounts, making it an ideal choice for demonstrating the capabilities of a data lakehouse.
 
 Lambda Trigger Configuration
+![image](https://github.com/user-attachments/assets/623e3b89-07de-43fc-a4f6-1b5495a0baa9)
+
  
 This screenshot shows the S3 bucket `lakehouse001` set up to trigger the Lambda function on the `s3:ObjectCreated:*` event.
 
 AWS Athena Query Editor
 
- 
+ ![image](https://github.com/user-attachments/assets/b38a1d79-65fa-4f39-9f24-db12865400aa)
+
 We query the data in AWS Athena to ensure that the Glue Crawler has updated the data catalog correctly.
 
 
@@ -55,14 +58,19 @@ AWS Glue Crawler
 The Glue Crawler `taxi_crawl` is configured and ready to run, connected to the data source in S3.
  
 
+![image](https://github.com/user-attachments/assets/c83eddcb-a88e-4819-9a08-d14f3ea444dc)
 
 
 
 S3 Bucket Structure
- 
+
+ ![image](https://github.com/user-attachments/assets/ba5828c0-2a87-4d10-b090-cb63e70fc25e)
+
 The S3 bucket `lakehouse001` contains the folders for the data input (`Data_Taxi`) and other relevant directories.
 
 Lambda Function Code
+![image](https://github.com/user-attachments/assets/c9a634fc-4942-4125-85de-b6f6e20da0eb)
+
  
 The Lambda function code initializes AWS clients and triggers the Glue Crawler based on S3 events.
 
