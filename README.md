@@ -1,11 +1,11 @@
-Building a Data Lakehouse with AWS: A Guide to Cost-Effective Data Engineering
+## Building a Data Lakehouse with AWS: A Guide to Cost-Effective Data Engineering
 
- 
+ ![image](https://github.com/user-attachments/assets/c8538b3d-4ac2-4aac-949d-7d3b34c326b0)
 
-Introduction
+# Introduction
 In this project, we dive into how to leverage AWS services to build a robust data lakehouse using NYC yellow taxi data. This guide walks you through setting up an efficient AWS architecture that includes data storage, orchestration, and processing using S3, Lambda, and Glue Crawler. Our goal is to showcase a cost-effective and efficient approach to data engineering.
 
-System Architecture
+#System Architecture
 Data Input
 - Sources: We use multiple data sources including Apache Airflow, Python scripts, Java applications, and direct file uploads.
 - Storage: Raw data is stored in S3 buckets, referred to as Brun Storage.
@@ -104,4 +104,3 @@ This project demonstrates how to build a cost-effective data lakehouse using AWS
 For detailed instructions and code, refer to the complete documentation and video tutorial. Feel free to explore the dataset and implementation details in the attached resources. Your feedback and suggestions are welcome to improve this project further.
 
 
-![image](https://github.com/user-attachments/assets/c8538b3d-4ac2-4aac-949d-7d3b34c326b0)
